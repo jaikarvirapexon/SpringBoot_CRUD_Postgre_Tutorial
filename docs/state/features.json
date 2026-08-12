@@ -1,1 +1,20 @@
-{}
+{
+  "STU-01": {
+    "story": "validated",
+    "story_priority": "P1",
+    "research": "complete",
+    "research_verdict": "GO",
+    "prd": "complete",
+    "design": "n/a",
+    "tracker_story": null,
+    "tracker_research": null,
+    "rtm_source_sha": "230946517761259d96c0e35a51b3103112342652",
+    "phase": "review",
+    "gate": "APPROVE",
+    "plan": "complete",
+    "validation": "passed",
+    "review": "PASS",
+    "review_report": "docs/features/STU-01/REVIEW.md",
+    "last_updated": "2026-08-12T22:45:00Z"
+  }
+}

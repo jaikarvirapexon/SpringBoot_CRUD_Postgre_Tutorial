@@ -1,0 +1,168 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< com.example:demo >--------------------------
+[INFO] Building demo 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ demo ---
+[INFO] Deleting /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ demo ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ demo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ demo ---
+[INFO] skip non existing resourceDirectory /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ demo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ demo ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.demo.student.StudentServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.52 s - in com.example.demo.student.StudentServiceTest
+[INFO] Running com.example.demo.student.StudentControllerTest
+14:43:45.133 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [StudentControllerTest]: using SpringBootContextLoader
+14:43:45.135 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.example.demo.student.StudentControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+14:43:45.136 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.demo.student.StudentControllerTest]: StudentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:43:45.174 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper -- Using ContextCustomizers for test class [StudentControllerTest]: [ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, DisableAutoConfigurationContextCustomizer, DisableObservabilityContextCustomizer, TypeExcludeFiltersContextCustomizer, PropertyMappingContextCustomizer, Customizer]
+14:43:45.264 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [/Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/target/classes/com/example/demo/DemoApplication.class]
+14:43:45.265 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.student.StudentControllerTest
+14:43:45.280 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper -- Using TestExecutionListeners for test class [StudentControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, ResetMocksTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener]
+14:43:45.282 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [StudentControllerTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.6)
+
+2026-08-12T14:43:45.573-07:00  INFO 26025 --- [           main] c.e.demo.student.StudentControllerTest   : Starting StudentControllerTest using Java 26.0.2 with PID 26025 (started by jai.karvir in /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial)
+2026-08-12T14:43:45.574-07:00  INFO 26025 --- [           main] c.e.demo.student.StudentControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-08-12T14:43:46.355-07:00  INFO 26025 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-12T14:43:46.355-07:00  INFO 26025 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-12T14:43:46.356-07:00  INFO 26025 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-08-12T14:43:46.375-07:00  INFO 26025 --- [           main] c.e.demo.student.StudentControllerTest   : Started StudentControllerTest in 1.06 seconds (process running for 2.406)
+2026-08-12T14:43:46.535-07:00  WARN 26025 --- [           main] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: "abc"]
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.535 s - in com.example.demo.student.StudentControllerTest
+[INFO] Running com.example.demo.DemoApplicationTests
+2026-08-12T14:43:46.571-07:00  INFO 26025 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.demo.DemoApplicationTests]: DemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-12T14:43:46.580-07:00  INFO 26025 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.demo.DemoApplication for test class com.example.demo.DemoApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.6)
+
+2026-08-12T14:43:46.611-07:00  INFO 26025 --- [           main] com.example.demo.DemoApplicationTests    : Starting DemoApplicationTests using Java 26.0.2 with PID 26025 (started by jai.karvir in /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial)
+2026-08-12T14:43:46.612-07:00  INFO 26025 --- [           main] com.example.demo.DemoApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-08-12T14:43:46.891-07:00  INFO 26025 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-12T14:43:46.943-07:00  INFO 26025 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interfaces.
+2026-08-12T14:43:47.197-07:00  INFO 26025 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-12T14:43:47.259-07:00  INFO 26025 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2026-08-12T14:43:47.440-07:00  INFO 26025 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-12T14:43:47.537-07:00  INFO 26025 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@50ac1249
+2026-08-12T14:43:47.538-07:00  INFO 26025 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-12T14:43:47.561-07:00  INFO 26025 --- [           main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+Hibernate: 
+    
+    drop table if exists student cascade
+2026-08-12T14:43:48.096-07:00  WARN 26025 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2026-08-12T14:43:48.096-07:00  WARN 26025 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "student" does not exist, skipping
+Hibernate: 
+    
+    drop sequence if exists student_sequence
+2026-08-12T14:43:48.097-07:00  WARN 26025 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2026-08-12T14:43:48.097-07:00  WARN 26025 --- [           main] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "student_sequence" does not exist, skipping
+Hibernate: create sequence student_sequence start with 1 increment by 1
+Hibernate: 
+    
+    create table student (
+       id bigint not null,
+        dob date,
+        email varchar(255),
+        name varchar(255),
+        primary key (id)
+    )
+2026-08-12T14:43:48.114-07:00  INFO 26025 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2026-08-12T14:43:48.122-07:00  INFO 26025 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-12T14:43:48.763-07:00  WARN 26025 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-12T14:43:48.908-07:00  INFO 26025 --- [           main] com.example.demo.DemoApplicationTests    : Started DemoApplicationTests in 2.322 seconds (process running for 4.939)
+Hibernate: 
+    select
+        nextval('student_sequence')
+Hibernate: 
+    select
+        nextval('student_sequence')
+Hibernate: 
+    insert 
+    into
+        student
+        (dob, email, name, id) 
+    values
+        (?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        student
+        (dob, email, name, id) 
+    values
+        (?, ?, ?, ?)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.406 s - in com.example.demo.DemoApplicationTests
+2026-08-12T14:43:48.994-07:00  INFO 26025 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-12T14:43:48.995-07:00  INFO 26025 --- [ionShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+Hibernate: 
+    
+    drop table if exists student cascade
+Hibernate: 
+    
+    drop sequence if exists student_sequence
+2026-08-12T14:43:49.005-07:00  INFO 26025 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-08-12T14:43:49.009-07:00  INFO 26025 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.3.0:jar (default-jar) @ demo ---
+[INFO] Building jar: /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/target/demo-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:3.0.6:repackage (repackage) @ demo ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] 
+[INFO] --- install:3.0.1:install (default-install) @ demo ---
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.pom
+Progress (1): 937 BProgress (1): 2.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.pom (2.2 kB at 5.8 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.0.0.v20140518/aether-1.0.0.v20140518.pom
+Progress (1): 798 BProgress (1): 2.7 kBProgress (1): 4.6 kBProgress (1): 8.4 kBProgress (1): 9.8 kBProgress (1): 14 kB Progress (1): 18 kBProgress (1): 20 kBProgress (1): 23 kBProgress (1): 28 kBProgress (1): 30 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether/1.0.0.v20140518/aether-1.0.0.v20140518.pom (30 kB at 431 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.pom
+Progress (1): 938 BProgress (1): 1.9 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.pom (1.9 kB at 25 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar
+Progress (1): 0.9/146 kBProgress (1): 2.3/146 kBProgress (1): 3.6/146 kBProgress (1): 5.0/146 kBProgress (1): 6.4/146 kBProgress (1): 7.7/146 kBProgress (1): 9.1/146 kBProgress (1): 10/146 kB Progress (1): 12/146 kBProgress (1): 13/146 kBProgress (1): 15/146 kBProgress (1): 16/146 kBProgress (1): 17/146 kBProgress (1): 19/146 kBProgress (1): 20/146 kBProgress (1): 21/146 kBProgress (1): 23/146 kBProgress (1): 24/146 kBProgress (1): 26/146 kBProgress (1): 27/146 kBProgress (1): 28/146 kBProgress (1): 30/146 kBProgress (1): 31/146 kBProgress (1): 32/146 kBProgress (1): 33/146 kBProgress (1): 35/146 kBProgress (1): 36/146 kBProgress (1): 37/146 kBProgress (1): 39/146 kBProgress (1): 40/146 kBProgress (1): 41/146 kBProgress (1): 46/146 kBProgress (1): 50/146 kBProgress (1): 54/146 kBProgress (1): 58/146 kBProgress (1): 63/146 kBProgress (1): 67/146 kBProgress (1): 71/146 kBProgress (1): 75/146 kBProgress (1): 79/146 kBProgress (1): 84/146 kBProgress (1): 88/146 kBProgress (1): 92/146 kBProgress (1): 96/146 kBProgress (1): 101/146 kBProgress (1): 105/146 kBProgress (1): 109/146 kBProgress (1): 113/146 kBProgress (1): 118/146 kBProgress (1): 122/146 kBProgress (1): 126/146 kBProgress (1): 130/146 kBProgress (1): 134/146 kBProgress (1): 139/146 kBProgress (1): 143/146 kBProgress (1): 146 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar (146 kB at 1.0 MB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar
+Progress (1): 3.8/136 kBProgress (1): 8.0/136 kBProgress (1): 12/136 kB Progress (1): 16/136 kBProgress (1): 21/136 kBProgress (1): 24/136 kBProgress (1): 28/136 kBProgress (1): 33/136 kBProgress (1): 37/136 kBProgress (1): 41/136 kBProgress (1): 45/136 kBProgress (1): 49/136 kBProgress (1): 54/136 kBProgress (1): 58/136 kBProgress (1): 62/136 kBProgress (1): 79/136 kBProgress (1): 95/136 kBProgress (1): 111/136 kBProgress (1): 128/136 kBProgress (1): 136 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/eclipse/aether/aether-api/1.0.0.v20140518/aether-api-1.0.0.v20140518.jar (136 kB at 2.4 MB/s)
+Progress (1): 0.9/263 kBProgress (1): 2.3/263 kBProgress (1): 3.6/263 kBProgress (1): 5.0/263 kBProgress (1): 6.4/263 kBProgress (1): 7.7/263 kBProgress (1): 9.1/263 kBProgress (1): 10/263 kB Progress (1): 12/263 kBProgress (1): 13/263 kBProgress (1): 15/263 kBProgress (1): 16/263 kBProgress (1): 17/263 kBProgress (1): 19/263 kBProgress (1): 20/263 kBProgress (1): 21/263 kBProgress (1): 23/263 kBProgress (1): 24/263 kBProgress (1): 25/263 kBProgress (1): 26/263 kBProgress (1): 27/263 kBProgress (1): 29/263 kBProgress (1): 30/263 kBProgress (1): 31/263 kBProgress (1): 33/263 kBProgress (1): 34/263 kBProgress (1): 36/263 kBProgress (1): 37/263 kBProgress (1): 38/263 kBProgress (1): 40/263 kBProgress (1): 41/263 kBProgress (1): 42/263 kBProgress (1): 44/263 kBProgress (1): 45/263 kBProgress (1): 46/263 kBProgress (1): 48/263 kBProgress (1): 49/263 kBProgress (1): 51/263 kBProgress (1): 52/263 kBProgress (1): 53/263 kBProgress (1): 55/263 kBProgress (1): 59/263 kBProgress (1): 63/263 kBProgress (1): 67/263 kBProgress (1): 72/263 kBProgress (1): 76/263 kBProgress (1): 80/263 kBProgress (1): 84/263 kBProgress (1): 89/263 kBProgress (1): 93/263 kBProgress (1): 97/263 kBProgress (1): 98/263 kBProgress (1): 103/263 kBProgress (1): 107/263 kBProgress (1): 111/263 kBProgress (1): 115/263 kBProgress (1): 119/263 kBProgress (1): 124/263 kBProgress (1): 128/263 kBProgress (1): 132/263 kBProgress (1): 136/263 kBProgress (1): 141/263 kBProgress (1): 145/263 kBProgress (1): 149/263 kBProgress (1): 153/263 kBProgress (1): 158/263 kBProgress (1): 162/263 kBProgress (1): 166/263 kBProgress (1): 170/263 kBProgress (1): 174/263 kBProgress (1): 179/263 kBProgress (1): 183/263 kBProgress (1): 187/263 kBProgress (1): 191/263 kBProgress (1): 196/263 kBProgress (1): 197/263 kBProgress (1): 201/263 kBProgress (1): 205/263 kBProgress (1): 209/263 kBProgress (1): 214/263 kBProgress (1): 218/263 kBProgress (1): 234/263 kBProgress (1): 251/263 kBProgress (1): 263 kB                        Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar (263 kB at 979 kB/s)
+[INFO] Installing /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/pom.xml to /Users/jai.karvir/.m2/repository/com/example/demo/0.0.1-SNAPSHOT/demo-0.0.1-SNAPSHOT.pom
+[INFO] Installing /Users/jai.karvir/Desktop/TRD/HarnessDemo/SpringBoot_CRUD_Postgre_Tutorial/target/demo-0.0.1-SNAPSHOT.jar to /Users/jai.karvir/.m2/repository/com/example/demo/0.0.1-SNAPSHOT/demo-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.473 s
+[INFO] Finished at: 2026-08-12T14:43:51-07:00
+[INFO] ------------------------------------------------------------------------

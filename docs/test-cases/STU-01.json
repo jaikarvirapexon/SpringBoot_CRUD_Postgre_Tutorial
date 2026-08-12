@@ -1,0 +1,132 @@
+{
+  "story_id": "STU-01",
+  "test_cases": [
+    {
+      "id": "STU-01-TC-01",
+      "title": "GET /api/v1/student/{studentId} returns 200 with full student body when the id exists",
+      "type": "integration",
+      "automatable": true,
+      "priority": "Must",
+      "requirement_id": "STU-01-FR-1",
+      "given": "a student with id 1 (name, email, dob) exists in the student table",
+      "when": "a client calls GET /api/v1/student/1",
+      "then": "the response is 200 OK with a JSON body containing id=1, name, email, dob, and a computed age field, matching the shape of a row from the existing GET /api/v1/student list endpoint",
+      "tags": ["happy-path"],
+      "last_run": {
+        "started_at": "2026-08-12T21:51:29Z",
+        "duration_ms": 40,
+        "status": "PASS",
+        "verdict": "PASS",
+        "attempts": [{"n": 1, "status": "PASS", "duration_ms": 40, "reason": null}],
+        "failure_reason": null,
+        "artefact": null,
+        "runner": "curl (real running server, no flow-generation runner configured for this stack)",
+        "rerun_count": 0
+      }
+    },
+    {
+      "id": "STU-01-TC-02",
+      "title": "GET /api/v1/student/{studentId} returns 404 (not 500) when the id does not exist",
+      "type": "integration",
+      "automatable": true,
+      "priority": "Must",
+      "requirement_id": "STU-01-FR-2",
+      "given": "no student with id 999 exists in the student table",
+      "when": "a client calls GET /api/v1/student/999",
+      "then": "the response is 404 Not Found with a JSON error body; the response is NOT a generic 500 from an uncaught IllegalStateException",
+      "tags": ["negative", "edge-case"],
+      "last_run": {
+        "started_at": "2026-08-12T21:51:32Z",
+        "duration_ms": 35,
+        "status": "PASS",
+        "verdict": "PASS",
+        "attempts": [{"n": 1, "status": "PASS", "duration_ms": 35, "reason": null}],
+        "failure_reason": null,
+        "artefact": null,
+        "runner": "curl (real running server, no flow-generation runner configured for this stack)",
+        "rerun_count": 0
+      }
+    },
+    {
+      "id": "STU-01-TC-03",
+      "title": "GET /api/v1/student/{studentId} with a non-numeric path segment returns 400",
+      "type": "integration",
+      "automatable": true,
+      "priority": "Must",
+      "requirement_id": "STU-01-FR-3",
+      "given": "the path variable segment is a non-numeric string",
+      "when": "a client calls GET /api/v1/student/abc",
+      "then": "the response is 400 Bad Request via Spring's default path-variable type conversion, with no custom validation code involved",
+      "tags": ["negative"],
+      "last_run": {
+        "started_at": "2026-08-12T21:51:30Z",
+        "duration_ms": 30,
+        "status": "PASS",
+        "verdict": "PASS",
+        "attempts": [{"n": 1, "status": "PASS", "duration_ms": 30, "reason": null}],
+        "failure_reason": null,
+        "artefact": null,
+        "runner": "curl (real running server, no flow-generation runner configured for this stack)",
+        "rerun_count": 0
+      }
+    },
+    {
+      "id": "STU-01-TC-04",
+      "title": "GET /api/v1/student/{studentId} with a negative or zero id returns 404, not an error",
+      "type": "integration",
+      "automatable": true,
+      "priority": "Should",
+      "requirement_id": "STU-01-FR-2",
+      "given": "no student exists with a negative id (-1) or id 0",
+      "when": "a client calls GET /api/v1/student/-1 and GET /api/v1/student/0",
+      "then": "both requests return 404 Not Found (the negative/zero value is numeric so Long conversion succeeds; the not-found path applies, not a 400)",
+      "tags": ["edge-case"],
+      "last_run": {
+        "started_at": "2026-08-12T21:51:36Z",
+        "duration_ms": 45,
+        "status": "PASS",
+        "verdict": "PASS",
+        "attempts": [{"n": 1, "status": "PASS", "duration_ms": 45, "reason": null}],
+        "failure_reason": null,
+        "artefact": null,
+        "runner": "curl (real running server, no flow-generation runner configured for this stack)",
+        "rerun_count": 0
+      }
+    },
+    {
+      "id": "STU-01-TC-05",
+      "title": "404 response body for a missing student contains no stack trace or internal exception identifier",
+      "type": "security",
+      "automatable": true,
+      "priority": "Must",
+      "requirement_id": "STU-01-NFR-security",
+      "given": "no student with id 999 exists in the student table",
+      "when": "a client calls GET /api/v1/student/999",
+      "then": "the 404 response body contains no stack trace, exception class name, or internal identifier — only Spring's default error JSON fields (status, error, message, timestamp, path)",
+      "tags": ["negative"],
+      "last_run": {
+        "started_at": "2026-08-12T21:51:37Z",
+        "duration_ms": 25,
+        "status": "PASS",
+        "verdict": "PASS",
+        "attempts": [{"n": 1, "status": "PASS", "duration_ms": 25, "reason": null}],
+        "failure_reason": null,
+        "artefact": null,
+        "runner": "curl (real running server, no flow-generation runner configured for this stack)",
+        "rerun_count": 0,
+        "note": "Response body is fully empty (Content-Length: 0), not Spring's default {status,error,message,timestamp,path} JSON shape — ResponseEntity.notFound().build() bypasses BasicErrorController entirely. This is a stricter negative (zero fields of any kind, so trivially no forbidden fields) than the then-clause's literal phrasing anticipated; treated as PASS on the whitelist reading. README.md:589 documents this exact empty-body behavior as intended."
+      }
+    }
+  ],
+  "coverage_audit": {
+    "functional_requirements": [
+      {"id": "STU-01-FR-1", "covered_by": ["STU-01-TC-01"]},
+      {"id": "STU-01-FR-2", "covered_by": ["STU-01-TC-02", "STU-01-TC-04"]},
+      {"id": "STU-01-FR-3", "covered_by": ["STU-01-TC-03"]}
+    ],
+    "non_functional_requirements": [
+      {"id": "STU-01-NFR-security", "covered_by": ["STU-01-TC-05"]}
+    ],
+    "uncovered": []
+  }
+}

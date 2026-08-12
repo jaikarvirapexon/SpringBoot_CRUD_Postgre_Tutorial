@@ -25,6 +25,10 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    public Optional<Student> getStudentById(Long studentId) {
+        return studentRepository.findById(studentId);
+    }
+
     public void addNewStudent(Student student) {
         Optional<Student> studentOptional = studentRepository.findStudentByEmail(student.getEmail());
         if (studentOptional.isPresent()) {

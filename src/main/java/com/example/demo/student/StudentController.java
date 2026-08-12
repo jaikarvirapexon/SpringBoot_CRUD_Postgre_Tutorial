@@ -1,9 +1,11 @@
 package com.example.demo.student;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/student")
@@ -18,6 +20,13 @@ public class StudentController {
     @GetMapping
     public List<Student> getStudent() {
         return studentService.getStudents();
+    }
+
+    @GetMapping(path = "{studentId}")
+    public ResponseEntity<Student> getStudentById(@PathVariable("studentId") Long studentId) {
+        Optional<Student> student = studentService.getStudentById(studentId);
+        return student.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
