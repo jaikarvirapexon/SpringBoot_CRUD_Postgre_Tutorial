@@ -1,0 +1,21 @@
+typecheck:           ./mvnw compile
+test:                ./mvnw test
+test_unit:           ./mvnw test
+test_integration:    # none configured — no separate integration test source set exists (single src/test/java tree)
+test_e2e:            # none configured
+lint:                # none configured — no lint plugin (checkstyle/spotbugs) in pom.xml; do not invent one
+format:              # none configured — no formatter plugin (spotless/google-java-format) in pom.xml; do not invent one
+build:               ./mvnw clean install
+
+# No frontend stack recorded in ADR-0001 (spring-boot-web is backend-only) — design_check intentionally left blank.
+design_check:
+
+# Per-extension overrides (post-edit hooks use these)
+typecheck_for_java:  ./mvnw compile
+format_for_java:     # none configured
+
+# Preflight: dep-install + smoke-import commands. validate-feature Phase 1
+# runs these. Non-zero exit fails Phase 1.
+preflight:
+  - ./mvnw -q -DskipTests dependency:go-offline
+  - ./mvnw -q -DskipTests compile

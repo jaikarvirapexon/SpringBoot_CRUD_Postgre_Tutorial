@@ -1,0 +1,26 @@
+apiVersion: harness.dev/v1
+kind: Harness
+template_version: 0.1.0
+project:
+  name: my-app
+  description: "Spring Boot CRUD tutorial — Student REST API backed by PostgreSQL via JPA"
+stacks:
+  - id: spring-boot-web
+    framework: spring-boot
+    version: "3.0.6"
+    package_manager: maven
+    test_runner: junit
+    paths:
+      - "**"
+integrations:
+  doc_tracker: local
+  issue_tracker: none
+  design: none
+  vcs: github
+  ci: github-actions
+governance:
+  profile: standard
+permissions:
+  allow_extra: []
+targets:
+  - claude-code
