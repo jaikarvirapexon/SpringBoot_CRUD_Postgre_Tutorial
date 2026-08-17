@@ -9,12 +9,15 @@
     "tracker_story": null,
     "tracker_research": null,
     "rtm_source_sha": "230946517761259d96c0e35a51b3103112342652",
-    "phase": "review",
+    "phase": "security-reviewed",
     "gate": "APPROVE",
     "plan": "complete",
+    "impl": "complete",
     "validation": "passed",
+    "validation_summary": "20260812-2219 P=5/5 in 1 round(s); prior run 20260812-2220 P=5/5 in 1 round(s)",
     "review": "PASS",
     "review_report": "docs/features/STU-01/REVIEW.md",
-    "last_updated": "2026-08-12T22:45:00Z"
+    "security": "PASS",
+    "last_updated": "2026-08-12T22:38:00Z"
   }
 }

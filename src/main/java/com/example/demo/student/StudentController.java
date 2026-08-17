@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.demo.school.SchoolClient;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -11,10 +13,12 @@ import java.util.Optional;
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
     private final StudentService studentService;
+    private final SchoolClient schoolClient;
 
     @Autowired
-    public StudentController(StudentService studentService) {
+    public StudentController(StudentService studentService, SchoolClient schoolClient) {
         this.studentService = studentService;
+        this.schoolClient = schoolClient;
     }
 
     @GetMapping
@@ -44,5 +48,13 @@ public class StudentController {
                               @RequestParam(required = false) String name,
                               @RequestParam(required = false) String email){
         studentService.updateStudent(studentId, name, email);
+    }
+
+    @GetMapping("/{studentId}/school/{schoolId}")
+    public String getStudentSchool(@PathVariable Long studentId, @PathVariable Long schoolId) {
+
+        String school = schoolClient.getSchool(schoolId);
+
+        return "Student " + studentId + " belongs to " + school;
     }
 }

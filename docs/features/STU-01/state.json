@@ -11,7 +11,10 @@
   "design_artifact": "docs/features/STU-01/DESIGN.md",
   "design_provider": "none",
   "design_iteration": 0,
-  "phase": "review",
+  "phase": "security-reviewed",
+  "impl": "complete",
+  "impl_branch": "feature/STU-01",
+  "adrs_referenced": ["ADR-1"],
   "gate": "APPROVE",
   "plan": "complete",
   "plan_validation": "PASS",
@@ -31,24 +34,6 @@
       "adr_ref": null,
       "created_at": "2026-08-12T14:00:00Z",
       "created_by": "plan-implementation/plan-authoring"
-    }
-  ],
-  "activity_log": [
-    {
-      "command": "plan-implementation",
-      "description": "PLAN.md written (1 ADR, 5 files, 3 tasks); plan-validation PASS round 1",
-      "timestamp": "2026-08-12T14:00:00Z",
-      "result": "PASS",
-      "agent": "impl-planning-agent",
-      "phase_transition": "plan-implementation"
-    },
-    {
-      "command": "validate-feature",
-      "description": "E2E validation against real running server (Postgres-backed, no mocks): 5/5 TCs PASS. Independent mvn test regression re-run: 8/8 green. Stack smoke PASS (~3s boot). All 3 PLAN tasks verified complete on disk. Report: docs/features/STU-01/VALIDATION-20260812-2220.md",
-      "timestamp": "2026-08-12T22:20:00Z",
-      "result": "PASS",
-      "agent": "validation-agent",
-      "phase_transition": "implementation"
     }
   ],
   "impl_tasks": [
@@ -80,9 +65,18 @@
     }
   ],
   "validation": "passed",
-  "validation_summary": "20260812-2220 P=5/5 in 1 round(s)",
+  "validation_summary": "20260812-2219 P=5/5 in 1 round(s); prior run 20260812-2220 P=5/5 in 1 round(s)",
   "review": "PASS",
   "review_report": "docs/features/STU-01/REVIEW.md",
+  "security": "PASS",
+  "security_findings": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 1,
+    "tool_missing": ["dependency-check-maven"]
+  },
+  "security_report": "docs/features/STU-01/SECURITY-20260812-2238.md",
   "impl_evidence": {
     "session_ended_at": "2026-08-12T21:59:00Z",
     "rounds": 1,
@@ -214,7 +208,51 @@
       "added_by": "human-review/02-apply",
       "resolved_at": "2026-08-12T22:00:35Z",
       "evidence": "docs/features/STU-01/evidence/mvnw-wrapper-restored.log"
+    },
+    {
+      "item_id": "REVIEW-F1-mvnw-bundling",
+      "kind": "finding",
+      "reason": "Commit 1cb84da bundles the .mvn/wrapper/maven-wrapper.properties, mvnw, mvnw.cmd restoration into the STU-01 feature commit despite AF-01 being recorded as status=defer (\"belongs in its own follow-up\"); FLAGS.md/state.json AF-01 disposition timestamps are also internally inconsistent (resolved_at predates the defer decided_at). See docs/features/STU-01/REVIEW.md F-1.",
+      "owner": "jai.karvir@apexon.com",
+      "added_at": "2026-08-12T23:10:00Z",
+      "added_by": "code-review-agent",
+      "resolved_at": null,
+      "evidence": null
     }
   ],
-  "last_updated": "2026-08-12T22:45:00Z"
+  "activity_log": [
+    {
+      "command": "plan-implementation",
+      "description": "PLAN.md written (1 ADR, 5 files, 3 tasks); plan-validation PASS round 1",
+      "timestamp": "2026-08-12T14:00:00Z",
+      "result": "PASS",
+      "agent": "impl-planning-agent",
+      "phase_transition": "plan-implementation"
+    },
+    {
+      "command": "validate-feature",
+      "description": "E2E validation against real running server (Postgres-backed, no mocks): 5/5 TCs PASS. Independent mvn test regression re-run: 8/8 green. Stack smoke PASS (~3s boot). All 3 PLAN tasks verified complete on disk. Report: docs/features/STU-01/VALIDATION-20260812-2220.md",
+      "timestamp": "2026-08-12T22:20:00Z",
+      "result": "PASS",
+      "agent": "validation-agent",
+      "phase_transition": "implementation"
+    },
+    {
+      "command": "validate-feature",
+      "description": "Fresh full re-validation run (explicit /arh-validate-feature STU-01 invocation, default mode, no --rerun): preflight via ./mvnw (wrapper working end-to-end, no system-mvn fallback needed); killed a stale leftover DemoApplication process squatting on port 8080 before smoke; generated 5 curl-based integration flows under tests/integration/; stack smoke PASS (spring-boot-web via ./mvnw spring-boot:run); 5/5 TCs PASS against the live server; independent ./mvnw test regression re-run 8/8 green; all 3 PLAN tasks re-verified complete on disk. Report: docs/features/STU-01/VALIDATION-20260812-2219.md",
+      "timestamp": "2026-08-12T22:19:05Z",
+      "result": "PASS",
+      "agent": "validation-agent",
+      "phase_transition": "implementation"
+    },
+    {
+      "command": "review",
+      "description": "Full fresh /arh-review STU-01 re-run against main...HEAD (commit 1cb84da, 24 files). 0 CRITICAL, 0 HIGH, 1 MEDIUM (scope-creep: mvnw wrapper restoration bundled into feature commit despite AF-01 defer decision), 0 LOW. 0 ADR violations. Report: docs/features/STU-01/REVIEW.md",
+      "timestamp": "2026-08-12T23:10:00Z",
+      "result": "PASS",
+      "agent": "code-review-agent",
+      "phase_transition": "review"
+    }
+  ],
+  "last_updated": "2026-08-12T22:38:00Z"
 }

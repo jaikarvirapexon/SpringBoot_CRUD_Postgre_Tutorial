@@ -1,5 +1,6 @@
 package com.example.demo.student;
 
+import com.example.demo.school.SchoolClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -25,6 +26,9 @@ class StudentControllerTest {
 
     @MockBean
     private StudentService studentService;
+
+    @MockBean
+    private SchoolClient schoolClient;
 
     @Test
     void getStudentById_idExists_returns200WithStudentBody() throws Exception {
