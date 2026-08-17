@@ -1,6 +1,6 @@
+
 # harness-managed: do not edit by hand; re-run /arh-setup-ci
 name: CI
-
 on:
   pull_request:
     branches:
@@ -9,7 +9,6 @@ on:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
   typecheck:
     name: Typecheck
@@ -24,7 +23,6 @@ jobs:
           cache: maven
       - name: Compile
         run: ./mvnw compile
-
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -50,12 +48,18 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: maven
-      - name: Run tests
+      - name: Check School Service
+        env:
+          SCHOOL_SERVICE_URL: ${{ vars.SCHOOL_SERVICE_URL }}
+        run: |
+          curl --fail \
+            "$SCHOOL_SERVICE_URL/todos/1"
+      - name: Run integration tests
         env:
           SPRING_DATASOURCE_USERNAME: postgres
           SPRING_DATASOURCE_PASSWORD: postgres
-        run: ./mvnw test
-
+          SCHOOL_CLIENT_BASE_URL: ${{ vars.SCHOOL_SERVICE_URL }}
+        run: ./mvnw verify
   build:
     name: Build
     runs-on: ubuntu-latest
