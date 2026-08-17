@@ -525,6 +525,71 @@ public class Student {
 ```
 Thus now, we do not need to insert age value to add student. Now we are done with **R**(Read) from 
 **CRUD**.
+
+### Get a single student by ID
+
+In addition to listing all students, we can fetch a single student by _ID_ using a `GetMapping` 
+with a path variable. 
+```java
+package com.example.demo.student;
+
+@RestController
+@RequestMapping(path = "api/v1/student")
+public class StudentController {
+    private final StudentService studentService;
+
+    //...
+
+    @GetMapping(path = "{studentId}")
+    public ResponseEntity<Student> getStudentById(@PathVariable("studentId") Long studentId) {
+        Optional<Student> student = studentService.getStudentById(studentId);
+        return student.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+}
+```
+Add the pass-through lookup logic into `Student Service`. 
+```java
+package com.example.demo.student;
+
+@Service
+public class StudentService {
+    private final StudentRepository studentRepository;
+
+    //...
+
+    public Optional<Student> getStudentById(Long studentId) {
+        return studentRepository.findById(studentId);
+    }
+}
+```
+If the _ID_ exists, the endpoint returns `200 OK` with the student's data. If the _ID_ does not
+exist, it returns `404 Not Found` instead of an unhandled `500` error. 
+
+HTTP request (existing ID) : 
+```
+###
+GET http://localhost:8080/api/v1/student/1
+```
+Result (`200 OK`) : 
+```json
+{
+  "id": 1,
+  "name": "Mariam",
+  "email": "mariam.jamal@gmail.com",
+  "dob": "2000-01-05",
+  "age": 23
+}
+```
+HTTP request (non-existing ID) : 
+```
+###
+GET http://localhost:8080/api/v1/student/999
+```
+Result (`404 Not Found`, empty body) : 
+```
+HTTP/1.1 404
+```
 ---
 Now, let's make a logic for **C**(Create) the data. json format of _Name, Email, and Date of 
 Birth_ will be given as input of Post Request, and it will save to Database **If the email not

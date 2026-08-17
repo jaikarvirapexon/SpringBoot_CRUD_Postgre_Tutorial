@@ -1,7 +1,7 @@
 typecheck:           ./mvnw compile
 test:                ./mvnw test
 test_unit:           ./mvnw test
-test_integration:    # none configured — no separate integration test source set exists (single src/test/java tree)
+test_integration:    ./mvnw verify
 test_e2e:            # none configured
 lint:                # none configured — no lint plugin (checkstyle/spotbugs) in pom.xml; do not invent one
 format:              # none configured — no formatter plugin (spotless/google-java-format) in pom.xml; do not invent one

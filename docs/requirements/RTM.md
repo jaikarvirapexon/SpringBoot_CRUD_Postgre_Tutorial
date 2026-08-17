@@ -13,3 +13,5 @@
 
 | ID | Title | Source | Type | Parent | Status | Tracker | Story file | Tests |
 |----|-------|--------|------|--------|--------|---------|------------|-------|
+| STU | Student CRUD API | intake:arh-intake | Epic | | Drafted | | | |
+| STU-01 | Create endpoint GetStudentById | intake:arh-intake | Story | STU | Drafted | | docs/stories/STU-01.md | |
